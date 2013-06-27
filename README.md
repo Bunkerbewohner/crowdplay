@@ -22,8 +22,8 @@ for people to vote on tracks and see what's currently playing.
 
 ![Spotify App](https://raw.github.com/Bunkerbewohner/crowdplay/master/screenshots/spotify-app.png)
 
-To use the player just copy the crowdplay folder into the Spotify app of your home folder (on Windows 
-for example: "%USERPROFILE%\Documents\Spotify") and start the app from spotify by typing "spotify:app:crowdplay"
+To use the player just copy the crowdplay folder into the Spotify app of your home folder (
+for example: *%USERPROFILE%\Documents\Spotify* on Windows, or *~/Spotify* on Linux and MacOS) and start the app from spotify by typing "spotify:app:crowdplay"
 into the search bar, or alternatively use the "Spotify-App" button in the web interface of CrowdPlay.
 
 ![Web Interface](https://raw.github.com/Bunkerbewohner/crowdplay/master/screenshots/web-interface.png)
