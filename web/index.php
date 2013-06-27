@@ -39,7 +39,7 @@
 
             <h2>Track Pool</h2>
 
-            <ul id="tracks" data-role="listview" data-filter="false" data-inset="true">
+            <ul id="tracks" data-role="listview" data-filter="true" data-inset="true">
                 <li>-- select a playlist first --</li>
             </ul>
 
