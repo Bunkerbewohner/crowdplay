@@ -6,11 +6,6 @@ var playlist = {
 };
 
 function init() {
-    if (window.localStorage.getItem("username") == null || window.localStorage.getItem("username") == "") {
-        var name = window.prompt("Username");
-        window.localStorage.setItem("username", name);
-    }
-
     $.get(serverUri, { wish: 'show'}, function(wishes) {
         var count = 3 - parseInt(wishes.stats[getUsername()]);
         if (count > 0) $("#skipButton").text('Skip Wish (' + count + ' left)').button('refresh');
@@ -37,8 +32,24 @@ function get_track(uri) {
     return tracks[uri];
 }
 
+function generate_guid() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+        return v.toString(16);
+    });
+}
+
+function get_guid() {
+    if (window.localStorage.guid != null) {
+        return window.localStorage.guid;
+    } else {
+        window.localStorage.guid = generate_guid();
+        return window.localStorage.guid;
+    }
+}
+
 function getUsername() {
-    return window.localStorage.getItem("username");
+    return get_guid();
 }
 
 function doSkipWish(e) {
