@@ -7,7 +7,7 @@ var playlist = {
 
 function init() {
     $.get(serverUri, { wish: 'show'}, function(wishes) {
-        var count = 3 - parseInt(wishes.stats[getUsername()]);
+        var count = typeof wishes.stats[getUsername()] == "undefined" ? 0 : 3 - parseInt(wishes.stats[getUsername()]);
         if (count > 0) $("#skipButton").text('Skip Wish (' + count + ' left)').button('refresh');
         else $("#skipButton").text('No Wishes left').prop('disabled', true).button('refresh');
     });
@@ -161,7 +161,8 @@ function scheduleUpdate() {
         setTimeout(scheduleUpdate, 5000);
     });
 }
-
-init();
-scheduleUpdate();
-$("#skipButton").click(doSkipWish);
+$(function() {
+    init();
+    scheduleUpdate();
+    $("#skipButton").click(doSkipWish);
+});
