@@ -67,6 +67,9 @@ require([
         var downvotes = get_downvotes(track);
         var last_play = get_last_played(track);
 
+        // determine max number of listeners
+        settings.numListeners = Math.max(settings.numListeners, upvotes.length + downvotes.length);
+
         // Upvotes directly influence probablity
         p += (upvotes.length / settings.numListeners) * settings.voteWeight;
         p -= (downvotes.length / settings.numListeners) * settings.voteWeight;
